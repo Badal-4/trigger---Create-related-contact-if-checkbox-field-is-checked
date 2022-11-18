@@ -1,0 +1,25 @@
+public class trgController
+{
+    public static void trgMethod(List<Account> accList)
+    {
+        List<Contact> conList = new List<Contact>();
+        if(accList.size() > 0)
+        {
+            for(Account acc : accList)
+            {
+               if(acc.Test_Checkbox__c == true)
+               {
+                   Contact con = new Contact();		
+                   con.FirstName = 'Checkbox ';
+                   con.LastName = acc.Name;
+                   con.AccountId = acc.Id;
+                   conList.add(con);
+               }
+            }
+        }
+        if(conList.size() > 0)
+        {
+            insert conList;
+        }
+    }
+}
